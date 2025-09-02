@@ -2,9 +2,31 @@
   margin: 0;
   font-family: 'Roboto Slab', 'Noto Sans TC', sans-serif;
 }
+:root {
+  --graphWidth: 730px;
+  --fs-s: 16px;
+  --fs-m: 18px;
+  --fs-l: 24px;
+  --fs-xl: 28px;
+  @media (max-width: 768px) {
+    --fs-l: 18px;
+    --fs-xl: 22px;
+  }
+}
 body {
+  background-color: #f1f1f1;
+}
+
+.container {
   background-color: #fff;
   padding: 20px;
+  width: var(--graphWidth);
+  height: calc(var(--graphWidth) * 5/4);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  border-radius: 5px;
 }
 
 .header {
@@ -14,12 +36,16 @@ body {
   gap: 5px;
 }
 .header h1 {
-  font-size: 36px;
+  font-size: var(--fs-xl);
   line-height: 1.1;
+  font-weight: 700;
+  color: #404040;
 }
 .header h2 {
-  font-size: 24px;
+  font-size: var(--fs-l);
   line-height: 1.1;
+  font-weight: 700;
+  color: #404040;
 }
 .footer {
   display: flex;
@@ -40,16 +66,17 @@ body {
   width: 100%;
 }
 .footer p {
-  color: #666;
-  font-size: 16px;
-  font-weight: 500;
+  color: #808080;
+  font-size: var(--fs-s);
+  font-weight: 400;
 }
 
 .chartContainer {
-  padding: 10px;
   background-color: #f1f1f1;
   border-radius: 5px;
-  margin: 15px 0;
+  padding: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
 }
 
 table, th, td {
@@ -63,22 +90,23 @@ table.base {
   border-collapse: collapse;
 }
 table.base td, table.base th {
-  border: 1px solid #aaa;
+  border: 1px solid #bbb;
   padding: 3px 2px;
 }
 table.base tbody td {
-  font-size: 13px;
+  font-size: var(--fs-m);
   color: #333;
+  font-weight: 400;
 }
 table.base tr:nth-child(even) {
-  background: #ccc;
+  background: #ddd;
 }
 table.base thead {
-  background: #666;
+  background: #333;
 }
 table.base thead th {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: var(--fs-m);
+  font-weight: 500;
   color: #FFFFFF;
   text-align: center;
   border-left: 1px solid #f1f1f1;
@@ -89,42 +117,47 @@ table.base thead th:first-child {
 
 td[data-tooltip] {
   position: relative;
-  --t-speed: 150ms;
-  --t-bg: #111;
-  --t-fg: #fff;
+  --tt-speed: 150ms;
+  --tt-bgColor: #ffffffcc;
+  --tt-fontColor: #333;
+  --tt-maxWidth: 150px;
 }
 td[data-tooltip]::after {
   content: attr(data-tooltip);
   position: absolute;
   left: 50%;
   bottom: 100%;
-  transform: translate(-50%, 4px) scale(0.98);
-  background: var(--t-bg);
-  color: var(--t-fg);
+  transform: translate(-50%, 4px) scale(1);
+  background: var(--tt-bgColor);
+  color: var(--tt-fontColor);
   padding: 4px 6px;
-  border-radius: 4px;
-  font-size: 12px;
+  border-radius: 3px;
+  font-size: var(--fs-s);
   line-height: 1.2;
   white-space: pre-wrap;
   pointer-events: none;
   opacity: 0;
-  transition: opacity var(--t-speed) ease, transform var(--t-speed) ease;
+  transition: opacity var(--tt-speed) ease, transform var(--tt-speed) ease;
+  width: max-content;
+  max-width: var(--tt-maxWidth);
 }
 td[data-tooltip]::before {
   content: "";
   position: absolute;
   left: 50%;
   bottom: calc(100% - 10px);
-  transform: translateX(-50%) scale(0.98);
+  transform: translateX(-50%) scale(1);
   border: 5px solid transparent;
-  border-top-color: var(--t-bg);
+  border-top-color: var(--tt-bgColor);
   opacity: 0;
-  transition: opacity var(--t-speed) ease, transform var(--t-speed) ease;
+  transition: opacity var(--tt-speed) ease, transform var(--tt-speed) ease;
 }
 td[data-tooltip]:hover::after,
 td[data-tooltip]:hover::before {
   opacity: 1;
   transform: translate(-50%, 0) scale(1);
+  backdrop-filter: blur(5px);
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
 }
 td:not([data-tooltip])::after,
 td:not([data-tooltip])::before {

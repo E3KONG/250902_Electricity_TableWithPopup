@@ -13,9 +13,10 @@
 		"設計："
 	];
 </script>
-
-<Header {title} {subtitle}/>
-<div class="chartContainer">
-	<Table tableData={$tableContent} style={"base"}/>
+<div class="container">
+  <Header {title} {subtitle}/>
+  <div class="chartContainer">
+	  <Table tableData={$tableContent} style={"base"}/>
+  </div>
+  <Footer {footer}/>
 </div>
-<Footer {footer}/>

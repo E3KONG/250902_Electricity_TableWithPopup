@@ -15,5 +15,26 @@ export let tableContent = writable([
 		"Subject" : "Science",
 		"Tooltip": "This is also a tooltip"
 	},
+    {
+        "核能發展" : "Maria",
+        "Favorite Subject" : "Science",
+        "Age" : 13,
+        "Subject" : "Science",
+        "Tooltip": "This is also a tooltip too"
+    },
+    {
+        "核能發展" : "Jose",
+        "Favorite Subject" : "Science",
+        "Age" : 13,
+        "Subject" : "Science",
+        "Tooltip": "This is also a tooltip ~"
+    },
+    {
+        "核能發展" : "Maria",
+        "Favorite Subject" : "Science",
+        "Age" : 13,
+        "Subject" : "Science",
+        "Tooltip": "This is also a tooltip ..."
+    },
 ]);
 
