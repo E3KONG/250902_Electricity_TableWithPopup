@@ -1,40 +1,99 @@
-﻿import { writable } from 'svelte/store';
+﻿import { writable, derived } from 'svelte/store';
 
-export let tableContent = writable([
+export let membersSpeech = writable([
 	{
-		"核能發展" : "Maria",
-		"Favorite Subject" : "Math",
-		"Age" : 14,
-		"Subject" : "Math",
-		"Tooltip": "This is a tooltip"
+		"太陽光電發展" : "蘇治芬",
+		"風電發展" : "蘇治芬",
+		"風光電以外再生能源" : "趙天麟",
+		"燃煤與燃氣發電" : "楊瓊瓔",
+        "核能發展": "吳怡玎",
+        "天然氣建設與儲存": "楊瓊瓔",
+        "電力問題": "楊瓊瓔",
+        "台電管理": "楊瓊瓔",
+        "油電價格檢討": "楊瓊瓔"
 	},
 	{
-		"核能發展" : "Jose",
-		"Favorite Subject" : "Science",
-		"Age" : 13,
-		"Subject" : "Science",
-		"Tooltip": "This is also a tooltip"
+        "太陽光電發展" : "陳椒華",
+        "風電發展" : "邱志偉",
+        "風光電以外再生能源" : "蘇治芬",
+        "燃煤與燃氣發電" : "邱志偉",
+        "核能發展": "楊瓊瓔",
+        "天然氣建設與儲存": "邱志偉",
+        "電力問題": "洪孟楷",
+        "台電管理": "陳椒華",
+        "油電價格檢討": "林德福"
 	},
     {
-        "核能發展" : "Maria",
-        "Favorite Subject" : "Science",
-        "Age" : 13,
-        "Subject" : "Science",
-        "Tooltip": "This is also a tooltip too"
+        "太陽光電發展" : "蘇治芬",
+        "風電發展" : "蘇治芬",
+        "風光電以外再生能源" : "趙天麟",
+        "燃煤與燃氣發電" : "楊瓊瓔",
+        "核能發展": "吳怡玎",
+        "天然氣建設與儲存": "楊瓊瓔",
+        "電力問題": "楊瓊瓔",
+        "台電管理": "楊瓊瓔",
+        "油電價格檢討": "楊瓊瓔"
     },
     {
-        "核能發展" : "Jose",
-        "Favorite Subject" : "Science",
-        "Age" : 13,
-        "Subject" : "Science",
-        "Tooltip": "This is also a tooltip ~"
+        "太陽光電發展" : "陳椒華",
+        "風電發展" : "邱志偉",
+        "風光電以外再生能源" : "蘇治芬",
+        "燃煤與燃氣發電" : "邱志偉",
+        "核能發展": "楊瓊瓔",
+        "天然氣建設與儲存": "邱志偉",
+        "電力問題": "洪孟楷",
+        "台電管理": "陳椒華",
+        "油電價格檢討": "林德福"
     },
     {
-        "核能發展" : "Maria",
-        "Favorite Subject" : "Science",
-        "Age" : 13,
-        "Subject" : "Science",
-        "Tooltip": "This is also a tooltip ..."
+        "太陽光電發展" : "蘇治芬",
+        "風電發展" : "蘇治芬",
+        "風光電以外再生能源" : "趙天麟",
+        "燃煤與燃氣發電" : "楊瓊瓔",
+        "核能發展": "吳怡玎",
+        "天然氣建設與儲存": "楊瓊瓔",
+        "電力問題": "楊瓊瓔",
+        "台電管理": "楊瓊瓔",
+        "油電價格檢討": "楊瓊瓔"
+    },
+    {
+        "太陽光電發展" : "陳椒華",
+        "風電發展" : "邱志偉",
+        "風光電以外再生能源" : "蘇治芬",
+        "燃煤與燃氣發電" : "邱志偉",
+        "核能發展": "楊瓊瓔",
+        "天然氣建設與儲存": "邱志偉",
+        "電力問題": "洪孟楷",
+        "台電管理": "陳椒華",
+        "油電價格檢討": "林德福"
     },
 ]);
+
+export let membersIdentity = writable([
+    {
+        name: "蘇治芬",
+        party: "民進黨",
+        group: "電力委會會",
+    },
+    {
+        name: "楊瓊瓔",
+        party: "國民黨",
+        group: "電委會",
+    },
+    {
+        name: "吳怡玎",
+        party: "國民黨",
+        group: "委員會",
+    }
+]);
+
+export const membersIdentityByName = derived(membersIdentity, ($list) => {
+    const map = new Map();
+    if (Array.isArray($list)) {
+        for (const m of $list) {
+            if (m && m.name) map.set(m.name, m);
+        }
+    }
+    return map;
+});
 

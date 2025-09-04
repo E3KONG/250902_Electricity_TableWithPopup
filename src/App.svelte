@@ -2,7 +2,7 @@
 	import Header from './lib/Header.svelte';
 	import Footer from './lib/Footer.svelte';
 	import Table from './lib/Table.svelte';
-	import { tableContent } from './assets/data-store.js';
+  import {membersSpeech} from './assets/data-store.js';
 
 	let title = "圖表標題";
 	let subtitle;
@@ -16,7 +16,7 @@
 <div class="container">
   <Header {title} {subtitle}/>
   <div class="chartContainer">
-	  <Table tableData={$tableContent} style={"base"}/>
+	  <Table tableData={$membersSpeech} style={"base"}/>
   </div>
   <Footer {footer}/>
 </div>

@@ -1,4 +1,6 @@
 ﻿<script>
+	import { membersIdentityByName } from '../assets/data-store.js';
+
 	export let tableData = [
 		{
 			vitae : "dolorem",
@@ -12,25 +14,34 @@
 		}
 	];
 	export let style;
+  const columns = tableData.length ? Object.keys(tableData[0]): [];
 
-	const columns = tableData.length
-		? Object.keys(tableData[0]).filter((k) => k !== "Tooltip")
-		: [];
+	function identityTooltipFor(name) {
+		if (!name) return null;
+		const match = $membersIdentityByName && $membersIdentityByName.get
+			? $membersIdentityByName.get(name)
+			: null;
+		if (!match) return null;
+		const parts = [match.name, match.party, match.group].filter(Boolean);
+		return parts.join('\n');
+	}
 </script>
 
 <table class={style}>
 	<thead>
 	<tr>
-		{#each columns as columnHeading}
-			<th>{columnHeading}</th>
-		{/each}
+		<th>議題</th>
+		<th colspan={tableData.length}>立法委員</th>
 	</tr>
 	</thead>
 	<tbody>
-	{#each tableData as row}
+	{#each columns as col}
 		<tr>
-			{#each columns as col}
-				<td data-tooltip={row.Tooltip ?? undefined}>{row[col]}</td>
+			<th>{col}</th>
+			{#each tableData as row}
+				<td data-tooltip={
+				    identityTooltipFor(row[col]) || undefined
+				}>{row[col]}</td>
 			{/each}
 		</tr>
 	{/each}

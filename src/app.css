@@ -133,7 +133,7 @@ td[data-tooltip]::after {
   padding: 4px 6px;
   border-radius: 3px;
   font-size: var(--fs-s);
-  line-height: 1.2;
+  line-height: 1.4;
   white-space: pre-wrap;
   pointer-events: none;
   opacity: 0;
