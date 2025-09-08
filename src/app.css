@@ -19,7 +19,7 @@
     --fs-l: 18px;
     --fs-xl: 22px;
     --containerPadding: 10px;
-    --chartContainerPadding: 5px;
+    --chartContainerPadding: 7px 5px;
     --firstColumnWidth: 90px;
   }
   --party-kmt: #517399;
@@ -33,11 +33,11 @@
 }
 body {
   background-color: #f1f1f1;
+  /*width: var(--graphWidth);*/
 }
 
 .container {
-  width: var(--graphWidth);
-  aspect-ratio: 4/5;
+  /*aspect-ratio: 4/5;*/
   background-color: #fff;
   padding: var(--containerPadding);
   display: flex;
@@ -101,4 +101,3 @@ body {
     overflow: scroll;
   }
 }
-

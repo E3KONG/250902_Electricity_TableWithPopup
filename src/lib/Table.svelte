@@ -70,7 +70,7 @@
 
     // Map of party to text color for cells
     const PARTY_COLOR_MAP = {
-       '國民黨': 'var(--party-kmt-hl)',
+        '國民黨': 'var(--party-kmt-hl)',
         '民進黨': 'var(--party-dpp-hl)',
         '民眾黨': 'var(--party-tpp-hl)',
         '時代力量': 'var(--party-npp-hl)'
@@ -145,11 +145,11 @@
     {/each}
   </colgroup>
   <thead>
-    <tr>
-      {#each columns as col}
-        <th>{col}</th>
-      {/each}
-    </tr>
+  <tr>
+    {#each columns as col}
+      <th>{col}</th>
+    {/each}
+  </tr>
   </thead>
   <tbody>
   {#each tableData as row}
@@ -186,7 +186,7 @@
 
 <style>
   table {
-    min-width: 480px;
+    /*min-width: 480px;*/
   }
   table, th, td {
     border-collapse: collapse;
