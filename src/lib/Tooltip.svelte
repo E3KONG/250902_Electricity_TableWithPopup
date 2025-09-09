@@ -43,10 +43,10 @@
       window.removeEventListener('resize', updateContainerWidth);
     });
 
-    $: translateX = x > containerWidth / 1.5 ? '-100%' : '0%';
-    $: translateY = y > containerWidth * (5/4) / 1.5 ? '-100%' : '0%';
-    $: leftX = x > containerWidth / 1.5 ? x - 20 : x;
-    $: TopY = y > containerWidth * (5/4) / 1.5 ? y - 20 : y;
+    $: translateX = x > containerWidth / 1.75 ? '-100%' : '0%';
+    $: translateY = y > containerWidth * (5/4) / 1.75 ? '-100%' : '0%';
+    $: leftX = x > containerWidth / 1.75 ? x - 20 : x;
+    $: TopY = y > containerWidth * (5/4) / 1.75 ? y - 20 : y;
 </script>
 
 <div
