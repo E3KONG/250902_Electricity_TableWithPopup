@@ -3,7 +3,7 @@
   font-family: 'Roboto Slab', 'Noto Sans TC', sans-serif;
 }
 :root {
-  --graphWidth: 550px;
+  --graphWidth: 730px;
   --fs-xs: 14px;
   --fs-s: 16px;
   --fs-m: 18px;
@@ -33,11 +33,11 @@
 }
 body {
   background-color: #f1f1f1;
-  /*width: var(--graphWidth);*/
 }
 
 .container {
-  /*aspect-ratio: 4/5;*/
+  /*width: calc(var(--graphWidth) - 2 * var(--containerPadding));*/
+  /*height: calc(var(--graphWidth) * 5/4 - 2 * var(--containerPadding));*/
   background-color: #fff;
   padding: var(--containerPadding);
   display: flex;

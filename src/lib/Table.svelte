@@ -209,7 +209,7 @@
     font-size: var(--fs-m);
     color: #505050;
     font-weight: 450;
-    padding: 14px 0;
+    padding: 16px 0;
     @media (min-width: 769px) and (max-width: 1440px) {
       padding: 8px 5px;
     }
@@ -233,7 +233,7 @@
     color: #FFFFFF;
     text-align: center;
     border-left: 1px solid #f1f1f1;
-    padding: 7px 0;
+    padding: 10px 0;
     @media (min-width: 769px) and (max-width: 1440px) {
       padding: 5px 5px;
     }
